@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router';
 
 import classes from './Comments.module.css';
@@ -22,9 +22,9 @@ const Comments = () => {
     setIsAddingComment(true);
   };
 
-  const onAddedCommentHandler = () => {
-
-  };
+  const onAddedCommentHandler = useCallback(() => {
+    sendRequest(quoteId);
+  }, [sendRequest, quoteId]);
 
   let comments;
 
@@ -34,7 +34,7 @@ const Comments = () => {
     </div>
   }
 
-  if (status === 'completed' && loadedComments) {
+  if (status === 'completed' && (loadedComments && loadedComments.length > 0)) {
     comments = <CommentList comments={loadedComments} />
   }
 
@@ -52,8 +52,7 @@ const Comments = () => {
           Add a Comment
         </button>
       )}
-      {isAddingComment && <NewCommentForm quoteId={params.quoteId} onAddedComment={onAddedCommentHandler} />}
-      <p>Comments...</p>
+      {isAddingComment && <NewCommentForm quoteId={quoteId} onAddedComment={onAddedCommentHandler} />}
       {comments}
     </section>
   );

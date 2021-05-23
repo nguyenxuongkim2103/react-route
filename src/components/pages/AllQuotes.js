@@ -8,7 +8,7 @@ import NoQuotesFound from '../quotes/NoQuotesFound';
 
 
 const AllQuotes = () => {
-    const { sendRequest, status, data: loadedQuote, error } = useHttp(getAllQuotes, true);
+    const { sendRequest, status, data: loadedQuotes, error } = useHttp(getAllQuotes, true);
 
     useEffect(() => {
         sendRequest();
@@ -24,11 +24,11 @@ const AllQuotes = () => {
         return <p className='centered focused'>{error}</p>
     }
 
-    if (status === 'completed' && (!loadedQuote || loadedQuote.length === 0)) {
+    if (status === 'completed' && (!loadedQuotes || loadedQuotes.length === 0)) {
         return <NoQuotesFound />
     }
 
-    return <QuoteList quotes={loadedQuote} />
+    return <QuoteList quotes={loadedQuotes} />
 }
 
 export default AllQuotes;
