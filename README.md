@@ -46,7 +46,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+<p align="center">
+  <img src="wwqw.PNG" width=auto height=auto title="A webiste of many great quotes">
+</p>
 This is just a dummy example website that I created to practice ReactJS.
 
 ### Built With
