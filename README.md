@@ -4,7 +4,7 @@
   <h3 align="center">World Wide Quotes Webside</h3>
 
   <p align="center">
-    A website you can go ready inspiring quotes!
+    A website you can go read inspiring quotes!
     <br />
     <a href="https://quotes-bc37b.web.app/quotes">View Demo</a>
     ·
